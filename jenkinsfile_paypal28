@@ -1,8 +1,8 @@
 node{
  def mavenHome = tool name: 'maven3.8.6'
 stage('1clone'){
-//git 'https://github.com/sambadevop/maven-web-application'
-git credentialsId: 'githubcredentilas', url: 'https://github.com/sambadevop/maven-web-application'
+git 'https://github.com/sambadevop/maven-web-application'
+//git credentialsId: 'githubcredentilas', url: 'https://github.com/sambadevop/maven-web-application'
 }
 stage('2testig&build'){
    sh "${mavenHome}/bin/mvn install"  
