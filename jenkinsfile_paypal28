@@ -14,7 +14,7 @@ stage('4uploadnexus'){
 sh "${mavenHome}/bin/mvn deploy"
 }
 stage('5deploy_uat'){
-deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://18.215.171.48:8080/')], contextPath: null, war: 'target/*war'
+deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://54.147.36.161:8080/')], contextPath: null, war: 'target/*war'
 }
 stage('6aproval'){
 timeout(time:9, unit:'HOURS') {
@@ -22,7 +22,7 @@ timeout(time:9, unit:'HOURS') {
     }
 }
 stage('7deploy_prod'){
-deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://18.215.171.48:8080/')], contextPath: null, war: 'target/*war'
+deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://54.147.36.161:8080/')], contextPath: null, war: 'target/*war'
 }
 stage('8notifications'){
 //emailext body: 'build status for frontend applications', recipientProviders: [buildUser(), developers(), contributor()], subject: 'build status', to: 'paypay-team@gmail.com'
